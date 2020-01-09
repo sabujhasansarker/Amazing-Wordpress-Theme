@@ -19,7 +19,38 @@ $amazing_slider = json_decode($atts['amazing_slider'], true);
                                 <div class="slideMid">
                                     <p><?php echo $item->client_comment; ?></p>
                                 </div>
-                                <span class="star"><amp-img width="243" height="41" layout="intrinsic" src="<?php echo get_template_directory_uri() ?>/image/star.png" alt="star"></amp-img></span>
+                                <span class="star">
+                                    <?php 
+                                        if ($item->client_rating == 1) {
+                                            ?>
+                                            <amp-img width="243" height="41" layout="intrinsic" src="<?php echo get_template_directory_uri() ?>/image/star/one_star.png" alt="star"></amp-img>
+                                            <?php
+                                        } elseif ($item->client_rating == 2) {
+                                            ?>
+                                            <amp-img width="243" height="41" layout="intrinsic" src="<?php echo get_template_directory_uri() ?>/image/star/two_star.png" alt="star"></amp-img>
+                                            <?php
+                                        }
+                                            elseif ($item->client_rating == 3) {
+                                            ?>
+                                            <amp-img width="243" height="41" layout="intrinsic" src="<?php echo get_template_directory_uri() ?>/image/star/three_star.png" alt="star"></amp-img>
+                                            <?php
+                                        }
+                                            elseif ($item->client_rating == 4) {
+                                            ?>
+                                            <amp-img width="243" height="41" layout="intrinsic" src="<?php echo get_template_directory_uri() ?>/image/star/four_star.png" alt="star"></amp-img>
+                                            <?php
+                                        }
+                                            elseif ($item->client_rating == 5) {
+                                            ?>
+                                            <amp-img width="243" height="41" layout="intrinsic" src="<?php echo get_template_directory_uri() ?>/image/star/five_star.png" alt="star"></amp-img>
+                                            <?php
+                                        }else{
+                                            ?>
+                                            <amp-img width="243" height="41" layout="intrinsic" src="<?php echo get_template_directory_uri() ?>/image/star/no_star.png" alt="star"></amp-img>
+                                            <?php
+                                        }
+                                     ?>
+                                </span>
                                 <h6><?php echo $item->client_name; ?></h6>
                             </div> 
                            <?php
@@ -36,8 +67,3 @@ $amazing_slider = json_decode($atts['amazing_slider'], true);
             </amp-selector>
         </div>
     </div>
-
-<?php 
-
-
- ?>

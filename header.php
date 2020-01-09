@@ -91,3 +91,10 @@ echo $bufferCss;
                         ) ); ?>
 </div>
 </header>
+<style type="text/css">
+    .socialLink li a{
+    background:url(<?php echo get_template_directory_uri() ?>/image/socialLink.png);
+    background-size: 100% auto;
+        cursor: pointer;
+}
+</style>

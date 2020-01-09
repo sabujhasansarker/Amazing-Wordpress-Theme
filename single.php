@@ -1,5 +1,5 @@
 <?php get_header(  ); ?>
-<div class="blogCont">
+<div class="blogCont" onload="checkCookie()">
 <?php 
 if (have_posts()) {
     while (have_posts()) {
@@ -21,12 +21,13 @@ if (have_posts()) {
         <?php the_content(  ) ?>
         <div class="sbBtm">
             <ul class="socialLink">
-            	<li class="facebook"><a href="#"></a></li>
-            	<li class="twitter"><a href="#"></a></li>
-            	<li class="linkedin"><a href="#"></a></li>
-            	<li class="link"><a href="#"></a></li>
-            	<li class="heart"><a href="#"></a></li>
+            	<li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(  ) ?>"></a></li>
+            	<li class="twitter"><a href="http://www.twitter.com/intent/tweet?url=<?php the_permalink(  ) ?>"></a></li>
+            	<li class="linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php the_permalink(  ) ?>"></a></li>
+            	<li class="link" ><a onclick="myFunction()"></a></li>
+                <div id="like"></div>
             </ul>
+            <input type="text" value="<?php the_permalink(  ) ?>" id="myInput">
         </div>
         <div class="sbBtmBtn">
                 <div>
@@ -47,4 +48,27 @@ if (have_posts()) {
  ?>
 
 </div>
+<script>
+
+</script>
+<?php 
+  wp_localize_script( 'likeJs', 'likeSystam', array(
+            'postId'=> get_the_ID(),
+            'tamplet'=>get_template_directory_uri(),
+        )
+    );
+?>
 <?php get_footer() ?>
+<style type="text/css">
+    input#myInput {
+        opacity: 0;
+        height: 0;
+}
+div#like img {
+    width: 3%;
+    float: right;
+}
+div#like {
+    cursor: pointer;
+}
+</style>
